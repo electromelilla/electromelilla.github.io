@@ -1,0 +1,563 @@
+/* ============================
+   ElectroMelilla - Global CSS
+   ============================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: #0a0e1a;
+    color: #e0e0e0;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+}
+
+/* Force all content to stay within viewport - CENTERING FIX */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Ensure main containers are centered */
+.max-w-7xl {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Ensure flex centering works */
+.flex.items-center.justify-center {
+    width: 100%;
+}
+
+/* Prevent horizontal overflow */
+section, header, footer, nav {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Animated gradient background */
+.gradient-bg {
+    background: linear-gradient(-45deg, #0a0e1a, #0f1629, #151d38, #1b2547);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Glow effects */
+.glow-blue {
+    box-shadow: 0 0 20px rgba(0, 180, 216, 0.3), 0 0 40px rgba(0, 180, 216, 0.1);
+}
+
+.glow-green {
+    box-shadow: 0 0 20px rgba(0, 229, 160, 0.3), 0 0 40px rgba(0, 229, 160, 0.1);
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #00b4d8, #00e5a0, #d4a853);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.text-gradient-blue {
+    background: linear-gradient(135deg, #00b4d8, #00e5a0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Hero particles */
+.hero-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(0, 180, 216, 0.5);
+    border-radius: 50%;
+    animation: floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+}
+
+/* Scroll reveal animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-scale.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Service card hover effect */
+.service-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #00b4d8, #00e5a0);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.service-card:hover::before {
+    transform: scaleX(1);
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 180, 216, 0.15);
+}
+
+/* Portfolio card */
+.portfolio-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.portfolio-card:hover {
+    transform: scale(1.02);
+}
+
+.portfolio-card .overlay {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.portfolio-card:hover .overlay {
+    opacity: 1;
+}
+
+.portfolio-card img {
+    transition: transform 0.6s ease;
+}
+
+.portfolio-card:hover img {
+    transform: scale(1.1);
+}
+
+/* WhatsApp button pulse */
+.whatsapp-float {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* CTA button shine effect */
+.cta-shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 40%;
+    height: 200%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+    transform: skewX(-25deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { left: -60%; }
+    100% { left: 160%; }
+}
+
+/* Lightbox */
+.lightbox {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.lightbox-content {
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.lightbox.active .lightbox-content {
+    transform: scale(1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0e1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #00b4d8, #00e5a0);
+    border-radius: 4px;
+}
+
+/* Nav active state */
+.nav-link.active {
+    color: #00b4d8 !important;
+}
+
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #00b4d8, #00e5a0);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Counter animation */
+.counter-value {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Section divider */
+.section-divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #00b4d8, #00e5a0);
+    margin: 0 auto;
+}
+
+/* Mobile menu */
+.mobile-menu {
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.mobile-menu.open {
+    transform: translateX(0);
+}
+
+/* Feature card gradient border */
+.gradient-border {
+    position: relative;
+    background: #0f1629;
+    border-radius: 12px;
+}
+
+.gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 13px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(0,180,216,0.3), rgba(0,229,160,0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* Gold accent line */
+.gold-line {
+    width: 40px;
+    height: 2px;
+    background: #d4a853;
+}
+
+/* Page Header (for inner pages) */
+.page-header {
+    padding-top: 160px;
+    padding-bottom: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(-45deg, #0a0e1a, #0f1629, #151d38);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    z-index: -1;
+}
+
+/* Contact Form */
+.contact-form input,
+.contact-form textarea {
+    background: #0f1629;
+    border: 1px solid #1b2547;
+    color: #e0e0e0;
+    padding: 16px 20px;
+    border-radius: 12px;
+    width: 100%;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #00b4d8;
+    box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #6b7280;
+}
+
+/* Project Filter Buttons */
+.filter-btn {
+    padding: 10px 24px;
+    border-radius: 999px;
+    border: 1px solid #1b2547;
+    background: transparent;
+    color: #9ca3af;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    border-color: #00b4d8;
+    color: #00b4d8;
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, #00b4d8, #00e5a0);
+    color: #0a0e1a;
+    border-color: transparent;
+}
+
+/* Responsive Typography */
+@media (max-width: 640px) {
+    h1 { font-size: 2.5rem !important; }
+    h2 { font-size: 2rem !important; }
+    h3 { font-size: 1.25rem !important; }
+}
+
+/* Smooth section transition */
+section {
+    position: relative;
+}
+
+/* Image hover zoom container */
+.img-zoom-container {
+    overflow: hidden;
+}
+
+.img-zoom-container img {
+    transition: transform 0.6s ease;
+}
+
+.img-zoom-container:hover img {
+    transform: scale(1.08);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .page-header {
+        padding-top: 130px;
+        padding-bottom: 60px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .whatsapp-float, nav, footer { display: none; }
+}
+
+/* ============================================
+   STRONG CENTERING & RESPONSIVE FIXES
+   ============================================ */
+
+/* Force all elements to be centered */
+* {
+    box-sizing: border-box;
+}
+
+/* Ensure html and body take full width */
+html, body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* All direct children of body are centered */
+body > * {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Force Tailwind containers to center */
+.container, .max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-4xl {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* All text-center utility */
+[class*="text-center"] {
+    text-align: center;
+}
+
+/* Prevent any left/right float or offset issues */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Make sure flex items don't shift on mobile */
+@media (max-width: 1024px) {
+    .max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-4xl {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Prevent horizontal shift prevention */
+section, div, article, aside, header, footer, nav {
+    box-sizing: border-box;
+}
+
+/* Ensure images stay centered */
+img {
+    display: block;
+}
+
+/* Grid alignment fix */
+.grid {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Prevent negative margin issues */
+[class*="mx-auto"] {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Extra strong centering utility */
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Mobile specific alignment override */
+@media (max-width: 640px) {
+    body {
+        text-align: left;
+    }
+    section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .text-center {
+        text-align: center;
+    }
+}
