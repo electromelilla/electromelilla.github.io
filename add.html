@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Anadir fotos | ElectroMelilla</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-icon"><svg viewBox="0 0 32 32"><path d="M17 2 7 17h8l-1 13 11-17h-8V2Z"/></svg></span><span>Electro<span>Melilla</span></span></a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">Menu</button>
+    <nav class="site-menu" id="site-menu">
+      <a href="index.html">Inicio</a>
+      <a href="gallery.html">Trabajos</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+    <a class="phone-pill" href="tel:+34666243651">666 243 651</a>
+  </header>
+
+  <main>
+    <section class="page-hero admin-hero">
+      <p class="kicker">Pagina oculta</p>
+      <h1>Anadir fotos de trabajos</h1>
+      <p class="lead">Esta pagina no aparece en el menu. Entra directamente desde <strong>/add.html</strong>. Para que las fotos aparezcan en la web publicada, guarda la imagen dentro de <strong>IMAGE/</strong> y pega el codigo generado en <strong>works-data.js</strong>.</p>
+    </section>
+
+    <section class="admin-layout">
+      <form class="work-form" id="workForm">
+        <label>
+          Foto del trabajo
+          <input type="file" id="photo" accept="image/*" required>
+        </label>
+        <label>
+          Nombre del archivo en IMAGE
+          <input type="text" id="fileName" placeholder="ej: cuadro-electrico-melilla.jpg">
+        </label>
+        <label>
+          Titulo
+          <input type="text" id="title" placeholder="Ej: Reparacion de cuadro electrico" required>
+        </label>
+        <label>
+          Tipo de servicio
+          <select id="category" required>
+            <option value="Electricidad">Electricidad</option>
+            <option value="Fontaneria">Fontaneria</option>
+            <option value="Mantenimiento">Mantenimiento</option>
+            <option value="Urgencia">Urgencia</option>
+          </select>
+        </label>
+        <label>
+          Fecha
+          <input type="date" id="date">
+        </label>
+        <label>
+          Descripcion
+          <textarea id="description" rows="5" placeholder="Describe brevemente el trabajo realizado"></textarea>
+        </label>
+        <button class="btn btn-primary" type="submit">Preparar foto para galeria</button>
+        <p class="form-note">El navegador no puede escribir dentro del repo automaticamente. Despues de guardar, descarga/copias la foto en <strong>IMAGE/</strong> y anades el codigo generado a <strong>works-data.js</strong>.</p>
+      </form>
+
+      <aside class="admin-panel">
+        <h2>Publicar en la web</h2>
+        <p>Despues de elegir la foto, usa estos datos para dejarla fija en el sitio.</p>
+        <label class="code-label">
+          Codigo para works-data.js
+          <textarea id="publishCode" rows="12" readonly placeholder="Aqui aparecera el codigo del trabajo..."></textarea>
+        </label>
+        <div class="admin-actions">
+          <button class="btn btn-primary" id="copyCodeBtn" type="button">Copiar codigo</button>
+          <button class="btn btn-ghost" id="downloadImageBtn" type="button" disabled>Descargar foto con nombre IMAGE</button>
+          <button class="btn btn-ghost" id="exportBtn" type="button">Exportar JSON</button>
+          <label class="btn btn-ghost import-label">
+            Importar JSON
+            <input type="file" id="importFile" accept="application/json">
+          </label>
+          <button class="btn btn-danger" id="clearBtn" type="button">Borrar todo</button>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <p class="kicker">Vista previa</p>
+        <h2>Trabajos guardados</h2>
+      </div>
+      <div class="work-grid" id="adminGrid"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+  <script src="works-data.js"></script>
+  <script src="gallery.js"></script>
+</body>
+</html>
